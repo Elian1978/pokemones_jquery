@@ -54,6 +54,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
     const poke_types = poke.types.map(function(p){ return `<li>${p.type.name}</li>`})
 
+    const poke_abilities = poke.abilities.map(function(a){ return `<li>${a.ability.name}</li>`})
+
+    const poke_movements = poke.moves.slice(0,5).map(function(poke){ return `<li>${poke.move.name}</li>`})
+
     const html = `<div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header border-0">
@@ -73,13 +77,13 @@ document.addEventListener('DOMContentLoaded', function(){
                     <tr>
                         <th>Habilidades</th>
                         <td>
-                            <ol id="pokemon-abilities"></ol>
+                            <ol id="pokemon-abilities">${poke_abilities.join('')}</ol>
                         </td>
                     </tr>
                     <tr>
                         <th>5 primeros movimientos</th>
                         <td>
-                            <ol id="pokemon-moves"></ol>
+                            <ol id="pokemon-moves">${poke_movements.join('')}</ol>
                         </td>
                     </tr>
                 </table>
